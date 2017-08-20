@@ -7,16 +7,18 @@ import { routes } from './app.router';
 import { AppComponent } from './app.component';
 import { EstablishmentComponent } from './establishment/establishment.component';
 import { EstablishmentService } from './establishment/establishment.service';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    EstablishmentComponent
+    EstablishmentComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
-    routes,
-    HttpModule
+    HttpModule,
+    routes
   ],
   providers: [
     EstablishmentService
