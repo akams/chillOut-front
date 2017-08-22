@@ -12,6 +12,7 @@ import { EstablishmentService } from './establishment.service';
 export class EstablishmentComponent implements OnInit {
   establishments: Establishment[];
   selectedEstablishment: Establishment;
+  model = 1;
 
   constructor(
     private establishmentService: EstablishmentService,
@@ -19,11 +20,11 @@ export class EstablishmentComponent implements OnInit {
 
   getEstablishment(): void {
     this.establishmentService
-    .getEstablishment()
-    .then(establishment => {
-      console.log({establishment});
-      this.establishments = establishment;
-    });
+      .getEstablishment()
+      .then(establishment => {
+        console.log({ establishment });
+        this.establishments = establishment;
+      });
   }
 
   ngOnInit() {

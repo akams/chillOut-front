@@ -1,10 +1,24 @@
-<p>
-  establishment works!
-</p>
-<h2>My Heroes</h2>
-<ul class="heroes">
-  <li *ngFor="let establishment of establishments">
-    <span class="badge">{{establishment.id}}</span>
-    <span>{{establishment.name}}</span>
-  </li>
-</ul>
+<div>
+  <div class="btn-group" ngbRadioGroup name="radioBasic" [(ngModel)]="model">
+    Type affichage:
+    <label ngbButtonLabel class="btn-primary">
+          <input ngbButton type="radio" [value]="1"> Liste
+        </label>
+    <label ngbButtonLabel class="btn-primary">
+          <input ngbButton type="radio" value="middle"> Carte
+        </label>
+  </div>
+  <ul class="data-list">
+    <li *ngFor="let establishment of establishments">
+      <div class="card">
+        <div class="card-header"><img class="card-img-top" src="{{establishment.img}}" alt="Card image cap" style="width: 20rem;"></div>
+        <div class="card-body">
+          <h4 class="card-title">{{establishment.name}}</h4>
+          <p class="card-text">{{establishment.description}}</p>
+          <p class="card-text">{{establishment.adress.city}} {{establishment.adress.zipCode}} - {{establishment.adress.streetName}}</p>
+          <a [routerLink]="['/detail', establishment.id]" class="btn btn-primary">Détail</a>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
