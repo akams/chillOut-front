@@ -1,10 +1,16 @@
-<div *ngIf="establishment">
-  <h2>{{establishment.name}} details!</h2>
-  <div>
-    <label>id: </label>{{establishment.id}}</div>
-  <div>
-    <label>name: </label>
-    <input [(ngModel)]="establishment.name" placeholder="name" />
-   </div>
+<div class="container" *ngIf="establishment">
+  <div class="row">
+    <div class="col">
+      <img class="card-img-top" src="{{establishment.img}}" alt="Card image cap" style="width: 20rem;">
+    </div>
+    <div class="col">
+      <h2>{{establishment.name}}</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+     <p>{{establishment.description}}</p>
+    </div>
+  </div>
   <button (click)="goBack()">Back</button>
 </div>
