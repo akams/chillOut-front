@@ -18,9 +18,9 @@ export class EstablishmentComponent implements OnInit {
     private establishmentService: EstablishmentService,
     private router: Router) { }
 
-  getEstablishment(): void {
+  getEstablishments(): void {
     this.establishmentService
-      .getEstablishment()
+      .getEstablishments()
       .then(establishment => {
         console.log({ establishment });
         this.establishments = establishment;
@@ -28,7 +28,7 @@ export class EstablishmentComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getEstablishment();
+    this.getEstablishments();
   }
 
 }

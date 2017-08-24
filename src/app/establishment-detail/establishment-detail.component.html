@@ -1,3 +1,10 @@
-<p>
-  establishment-detail works!
-</p>
+<div *ngIf="establishment">
+  <h2>{{establishment.name}} details!</h2>
+  <div>
+    <label>id: </label>{{establishment.id}}</div>
+  <div>
+    <label>name: </label>
+    <input [(ngModel)]="establishment.name" placeholder="name" />
+   </div>
+  <button (click)="goBack()">Back</button>
+</div>

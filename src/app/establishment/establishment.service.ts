@@ -12,10 +12,18 @@ export class EstablishmentService {
 
   constructor(private http: Http) { }
 
-  getEstablishment(): Promise<Establishment[]> {
+  getEstablishments(): Promise<Establishment[]> {
     return this.http.get(this.url)
       .toPromise()
       .then(response => response.json() as Establishment[])
+      .catch(this.handleError);
+  }
+
+  getEstablishment(id: number): Promise<Establishment> {
+    const url = `${this.url}/${id}`;
+    return this.http.get(url)
+      .toPromise()
+      .then(response => response.json() as Establishment)
       .catch(this.handleError);
   }
 
