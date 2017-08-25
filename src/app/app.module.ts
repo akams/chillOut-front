@@ -1,8 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ApplicationRef } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { HttpModule } from '@angular/http';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AgmCoreModule } from '@agm/core';
 
 import { routes } from './app.router';
 
@@ -21,8 +24,12 @@ import { EstablishmentDetailComponent } from './establishment-detail/establishme
   ],
   imports: [
     BrowserModule,
-    HttpModule,
+    CommonModule,
     FormsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAvtt9bb2hPv99HXTEG6zQYXLp5H6v3RuI'
+    }),
+    HttpModule,
     ReactiveFormsModule,
     routes,
     NgbModule.forRoot()

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Establishment } from './establishment.class';
+import { Marker } from './marker';
 import { EstablishmentService } from './establishment.service';
 
 @Component({
@@ -12,7 +13,34 @@ import { EstablishmentService } from './establishment.service';
 export class EstablishmentComponent implements OnInit {
   establishments: Establishment[];
   selectedEstablishment: Establishment;
+  markers: Marker[] = [
+    {
+      lat: 51.673858,
+      lng: 7.815982,
+      label: 'A',
+      draggable: true
+    },
+    {
+      lat: 51.373858,
+      lng: 7.215982,
+      label: 'B',
+      draggable: false
+    },
+    {
+      lat: 51.723858,
+      lng: 7.895982,
+      label: 'C',
+      draggable: true
+    }
+  ];
   model = 1;
+  switchListToMap = 1;
+
+  // google maps zoom level
+  zoom = 8;
+  // initial center position for the map
+  lat = 51.673858;
+  lng = 7.815982;
 
   constructor(
     private establishmentService: EstablishmentService,
@@ -29,6 +57,23 @@ export class EstablishmentComponent implements OnInit {
 
   ngOnInit() {
     this.getEstablishments();
+  }
+
+  clickedMarker(label: string, index: number) {
+    console.log(`clicked the marker: ${label || index}`);
+  }
+
+  mapClicked($event) {
+    console.log({$event});
+    this.markers.push({ // eslint-disable-line
+      lat: $event.coords.lat, // eslint-disable-line
+      lng: $event.coords.lng, // eslint-disable-line
+      draggable: false
+    }); // eslint-disable-line
+  }
+
+  markerDragEnd(m: Marker, $event: MouseEvent) {
+    console.log('dragEnd', m, $event);
   }
 
 }
