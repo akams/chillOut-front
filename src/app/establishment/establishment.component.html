@@ -1,38 +1,40 @@
-<div>
-  <div class="btn-group" ngbRadioGroup name="radioBasic" [(ngModel)]="model">
-    Type affichage:
-    <label ngbButtonLabel class="btn-primary">
-          <input ngbButton type="radio" [value]="1"> Liste
-        </label>
-    <label ngbButtonLabel class="btn-primary">
-          <input ngbButton type="radio" value="middle"> Carte
-        </label>
-  </div>
+<div class="btn-group" ngbRadioGroup name="radioBasic" [(ngModel)]="model" (click)="clicked()">
+  <label ngbButtonLabel class="btn-primary">
+    <input ngbButton type="radio" [value]="true"> Liste
+  </label>
+  <label ngbButtonLabel class="btn-primary">
+    <input ngbButton type="radio" [value]="false"> Carte
+  </label>
+</div>
+<pre>
+    model: {{model}}
+</pre>
+<div *ngIf="model">
   <ul class="data-list">
-    <li *ngFor="let establishment of establishments">
-      <div class="card">
-        <div class="card-header"><img class="card-img-top" src="{{establishment.img}}" alt="Card image cap" style="width: 20rem;"></div>
-        <div class="card-body">
-          <h4 class="card-title">{{establishment.name}}</h4>
-          <p class="card-text">{{establishment.description}}</p>
-          <p class="card-text">{{establishment.adress.city}} {{establishment.adress.zipCode}} - {{establishment.adress.streetName}}</p>
-          <a [routerLink]="['/detail', establishment.id]" class="btn btn-primary">Détail</a>
+      <li *ngFor="let establishment of establishments">
+        <div class="card">
+          <div class="card-header"><img class="card-img-top" src="{{establishment.img}}" alt="Card image cap" style="width: 20rem;"></div>
+          <div class="card-body">
+            <h4 class="card-title">{{establishment.name}}</h4>
+            <p class="card-text">{{establishment.description}}</p>
+            <p class="card-text">{{establishment.adress.city}} {{establishment.adress.zipCode}} - {{establishment.adress.streetName}}</p>
+            <a [routerLink]="['/detail', establishment.id]" class="btn btn-primary">Détail</a>
+          </div>
         </div>
-      </div>
-    </li>
-  </ul>
-  <div class="text-align:center">
-    Welcome to {{title}}!
-    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="false" [zoomControl]="false" (mapClick)="mapClicked($event)">
-      <agm-marker *ngFor="let m of markers; let i = index" (markerClick)="clickedMarker(m.label, i)" [latitude]="m.lat"
-      [longitude]="m.lng" [label]="m.label" [markerDraggable]="m.draggable" (dragEnd)="markerDragEnd(m, $event)">
-        <agm-info-window>
-          <strong>InfoWindow content</strong>
-        </agm-info-window>
-      </agm-marker>
-      <agm-circle [latitude]="lat + 0.3" [longitude]="lng" [radius]="5000" [fillColor]="'red'" [circleDraggable]="true"
-      [editable]="true">
-      </agm-circle>
-    </agm-map>
-  </div>
+      </li>
+    </ul>
+</div>
+<div class="text-align:center" *ngIf="model === false">
+  Welcome to {{title}}!
+  <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="false" [zoomControl]="false" (mapClick)="mapClicked($event)">
+    <agm-marker *ngFor="let m of markers; let i = index" (markerClick)="clickedMarker(m.label, i)" [latitude]="m.lat"
+    [longitude]="m.lng" [label]="m.label" [markerDraggable]="m.draggable" (dragEnd)="markerDragEnd(m, $event)">
+      <agm-info-window>
+        <strong>InfoWindow content</strong>
+      </agm-info-window>
+    </agm-marker>
+    <agm-circle [latitude]="lat + 0.3" [longitude]="lng" [radius]="5000" [fillColor]="'red'" [circleDraggable]="true"
+    [editable]="true">
+    </agm-circle>
+  </agm-map>
 </div>

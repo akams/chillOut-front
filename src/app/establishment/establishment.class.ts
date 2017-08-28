@@ -3,6 +3,12 @@ export class Establishment {
     name: string;
     description: string;
     img: string;
-    adress: object;
+    adress: {
+        city: string,
+        streetName: string
+        zipCode: string
+    };
+    latitude: number;
+    longitude: number;
     price: number;
 }
