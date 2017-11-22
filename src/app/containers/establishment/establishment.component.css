@@ -1,0 +1,7 @@
+ul.data-list {
+  list-style-type: none;
+}
+
+agm-map {
+  height: 550px;
+}

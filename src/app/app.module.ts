@@ -10,10 +10,10 @@ import { AgmCoreModule } from '@agm/core';
 import { routes } from './app.router';
 
 import { AppComponent } from './app.component';
-import { EstablishmentComponent } from './establishment/establishment.component';
-import { EstablishmentService } from './establishment/establishment.service';
-import { HomeComponent } from './home/home.component';
-import { EstablishmentDetailComponent } from './establishment-detail/establishment-detail.component';
+import { EstablishmentComponent } from './containers/establishment/establishment.component';
+import { EstablishmentService } from './containers/establishment/establishment.service';
+import { HomeComponent } from './containers/home/home.component';
+import { EstablishmentDetailComponent } from './containers/establishment-detail/establishment-detail.component';
 
 @NgModule({
   declarations: [
