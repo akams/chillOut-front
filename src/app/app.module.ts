@@ -14,13 +14,15 @@ import { EstablishmentComponent } from './containers/establishment/establishment
 import { EstablishmentService } from './containers/establishment/establishment.service';
 import { HomeComponent } from './containers/home/home.component';
 import { EstablishmentDetailComponent } from './containers/establishment-detail/establishment-detail.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     EstablishmentComponent,
-    EstablishmentDetailComponent
+    EstablishmentDetailComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
