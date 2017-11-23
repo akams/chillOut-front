@@ -1,7 +1,38 @@
 #banner-search {
   background-image: url(/assets/images/Depositphotos_77182329_original.jpg);
-  height: 800px;
+  height: 600px;
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: bottom;
+}
+
+.search-field {
+  padding-top:20%
+}
+.search-field div > form {
+  background: #fff;
+  padding: 20px;
+}
+.search-field div > form input, button {
+  padding: 20px
+}
+.search-field div > form input#inlineFormInputGroupWhen {
+  padding: 18px
+}
+
+
+
+#who-we-are {
+  height: 400px;
+  border: 1px solid;
+}
+
+#how-that-work {
+  height: 400px;
+  border: 1px solid;
+}
+
+#temoin {
+  height: 400px;
+  border: 1px solid;
 }
