@@ -9,15 +9,30 @@
 .search-field {
   padding-top:20%
 }
-.search-field div > form {
+.search-field div.col-10{
   background: #fff;
-  padding: 20px;
+}
+.search-field div > form {
+  padding: 20px 20px 5px 20px;
 }
 .search-field div > form input, button {
   padding: 20px
 }
 .search-field div > form input#inlineFormInputGroupWhen {
   padding: 18px
+}
+
+a {
+  color: #007bff !important;
+  text-decoration: none !important;
+  background-color: transparent !important;
+  cursor:pointer;
+}
+
+a:hover {
+  color: #0056b3 !important;
+  text-decoration: underline !important;
+  cursor:pointer;
 }
 
 

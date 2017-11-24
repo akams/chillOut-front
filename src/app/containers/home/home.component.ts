@@ -12,4 +12,8 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
+  moreCriteas(): void {
+    console.log('YUUP man!');
+  }
+
 }
