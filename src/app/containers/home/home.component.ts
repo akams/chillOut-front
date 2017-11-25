@@ -6,14 +6,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  displayMoreCriteas: boolean;
+  currentStyles: object;
 
   constructor() { }
 
   ngOnInit() {
+    this.displayMoreCriteas = false;
+    this.currentStyles = {
+      'width': !this.displayMoreCriteas ? '88%' : ''
+    };
   }
 
   moreCriteas(): void {
-    console.log('YUUP man!');
+    this.displayMoreCriteas = !this.displayMoreCriteas;
+    this.currentStyles = {
+      'width': !this.displayMoreCriteas ? '88%' : ''
+    };
   }
 
 }

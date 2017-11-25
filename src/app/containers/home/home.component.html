@@ -14,16 +14,16 @@
       <div class="col-10">
         <form class="form-inline">
           <label class="sr-only" for="inlineFormInput">Combien ?</label>
-          <input type="number" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Combien € ?">
+          <input [ngStyle]="currentStyles" type="number" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Combien € ?">
 
-          <label class="sr-only" for="inlineFormInputGroup">Ou ?</label>
-          <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+          <label [hidden]="!displayMoreCriteas" class="sr-only" for="inlineFormInputGroup">Ou ?</label>
+          <div [hidden]="!displayMoreCriteas" class="input-group mb-2 mr-sm-2 mb-sm-0">
             <div class="input-group-addon"><i class="fa fa-location-arrow" aria-hidden="true"></i></div>
             <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Ou ?">
           </div>
 
-          <label class="sr-only" for="inlineFormInputGroupWhen">Quand ?</label>
-          <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+          <label [hidden]="!displayMoreCriteas" class="sr-only" for="inlineFormInputGroupWhen">Quand ?</label>
+          <div [hidden]="!displayMoreCriteas" class="input-group mb-2 mr-sm-2 mb-sm-0">
             <div class="input-group-addon"><i class="fa fa-calendar" aria-hidden="true"></i></div>
             <input type="date" class="form-control" id="inlineFormInputGroupWhen" placeholder="date">
           </div>

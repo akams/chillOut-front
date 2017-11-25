@@ -50,6 +50,7 @@ gulp.task("scripts.third", function () {
   return gulp.src([
     'node_modules/popper.js/dist/umd/popper.min.js',
     'node_modules/jquery/dist/jquery.min.js',
+    'node_modules/tether/dist/js/tether.min.js',
     'node_modules/bootstrap/dist/js/bootstrap.min.js',
   ])
   .pipe(sourcemaps.init())
@@ -71,7 +72,8 @@ gulp.task("stylesheets.client", function () {
 
 gulp.task("stylesheets.third", function () {
   return gulp.src([
-    'node_modules/bootstrap/dist/**/*.css'
+    'node_modules/bootstrap/dist/**/*.css',
+    'node_modules/tether/dist/**/*.css',
   ])
   .pipe(sourcemaps.init())
   .pipe(concat("third.0.0.0.min.css"))
@@ -80,7 +82,7 @@ gulp.task("stylesheets.third", function () {
 });
 
 
-gulp.task('copy', function() {
+gulp.task('font', function() {
   gulp.src([
       'node_modules/font-awesome/**',
       '!node_modules/font-awesome/**/*.map',
@@ -97,7 +99,7 @@ gulp.task('copy', function() {
 gulp.task('default2', ['sass', 'minify-css', 'minify-js', 'copy']);
 
 // Default 1 - task
-gulp.task('default', ['scripts', 'stylesheets']);
+gulp.task('default', ['scripts', 'stylesheets', 'font']);
 
 // Script
 gulp.task("scripts", ["scripts.client", "scripts.third"]);
